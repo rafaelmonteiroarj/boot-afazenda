@@ -1,0 +1,22 @@
+{
+  "name": "boot-afazenda",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start:dev": "ts-node index.ts",
+    "build": "rimraf ./build && tsc",
+    "start": "node ./build/index.js"
+  },
+  "dependencies": {
+    "config": "^3.3.2",
+    "puppeteer": "^5.4.1"
+  },
+  "devDependencies": {
+    "@types/config": "^0.0.36",
+    "@types/puppeteer": "^5.4.0",
+    "rimraf": "^3.0.2",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.5"
+  }
+}
