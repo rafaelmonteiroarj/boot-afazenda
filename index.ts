@@ -11,18 +11,18 @@ import config from 'config';
   const click = async (pg: Page, x: string) => {
     await pg.waitForSelector(x);
     await pg.click(x);
-    await pg.waitFor(2000);
+    await pg.waitForTimeout(1400);
   };
 
-  const vote = async (page: Page) => {
+  const vote = async (page: Page, count: number) => {
     const elements = await page.$x(
-      "/html/body/div[6]/div[1]/div/div/div/div[1]/ul/li[3]"
+      "/html/body/div[6]/div[1]/div/div/div/div[1]/ul/li[1]"
     );
-    await elements[0].click();
+    await elements[0]?.click();
 
     await click(page, ".voting-button");
     await click(page, ".voting-button");
-    console.log("Voto computado com sucesso!");
+    console.log("Voto computado com sucesso, #ficaJojo ==>", count);
   };
 
   const votes = 500;
@@ -31,14 +31,14 @@ import config from 'config';
 
   await click(
     page,
-    "figure.voting-card:nth-child(3) > div:nth-child(2) > img:nth-child(1)"
+    "figure.voting-card:nth-child(1) > div:nth-child(2) > img:nth-child(1)"
   );
 
   await click(page, ".voting-button");
   await click(page, ".voting-button");
 
   for (let i = 0; i < votes; i++) {
-    await vote(page);
+    await vote(page, i);
   }
 
   page.on("console", async consoleObj => {
