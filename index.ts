@@ -16,13 +16,13 @@ import config from 'config';
 
   const vote = async (page: Page, count: number) => {
     const elements = await page.$x(
-      "/html/body/div[6]/div[1]/div/div/div/div[1]/ul/li[1]"
+      "/html/body/div[6]/div[1]/div/div/div/div[1]/ul/li[2]"
     );
     await elements[0]?.click();
 
     await click(page, ".voting-button");
     await click(page, ".voting-button");
-    console.log("Voto computado com sucesso, #ficaJojo ==>", count);
+    console.log("Voto computado com sucesso, #ficaMariano contra a minha vontade ==>", count);
   };
 
   const votes = 500;
@@ -31,7 +31,7 @@ import config from 'config';
 
   await click(
     page,
-    "figure.voting-card:nth-child(1) > div:nth-child(2) > img:nth-child(1)"
+    "figure.voting-card:nth-child(2) > div:nth-child(2) > img:nth-child(1)"
   );
 
   await click(page, ".voting-button");
